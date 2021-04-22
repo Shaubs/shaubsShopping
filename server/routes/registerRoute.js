@@ -5,7 +5,7 @@ const RegisterRouter = express.Router();
 
 RegisterRouter.route('/:EmailID')
     .get((req, res, next) => {
-        check(req.params.EmailID).then(msg => {
+        check(req.params.EmailID.toLowerCase()).then(msg => {
             console.log(msg)
             res.statusCode = 200;
             res.setHeader('content-type', 'application/json');
@@ -40,8 +40,8 @@ function check(email) {
 
 function insert(req) {
     var msg;
-    return sequelize.query(`INSERT INTO employee(employeeID,LastName,FirstName,Organization) VALUES('${req.body.EmployeeID}','${req.body.LastName}','${req.body.FirstName}','${req.body.OrganizationName}');` +
-        `INSERT INTO user(employeeID,emailID,password) VALUES('${req.body.EmployeeID}','${req.body.EmailID}','${req.body.Password}')`)
+    return sequelize.query(`INSERT INTO employee(employeeID,LastName,FirstName,Organization) VALUES('${req.body.EmployeeID.toLowerCase()}','${req.body.LastName.toLowerCase()}','${req.body.FirstName.toLowerCase()}','${req.body.OrganizationName.toLowerCase()}');` +
+        `INSERT INTO user(employeeID,emailID,password) VALUES('${req.body.EmployeeID.toLowerCase()}','${req.body.EmailID.toLowerCase()}','${req.body.Password}')`)
         .then((result) => {
 
             console.log("done");

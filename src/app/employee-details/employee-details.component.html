@@ -1,1 +1,70 @@
-<p>employee-details works!</p>
+<div>
+    <mat-card>
+        <mat-card-header></mat-card-header>
+        <mat-card-content style="display: block;">
+            <button color="accent" mat-raised-button [matMenuTriggerFor]="search">Search Criteria</button>
+            <mat-menu #search="matMenu">
+                <button (click)="searchSelected(option)" *ngFor="let option of searchOptions"
+                    mat-menu-item>{{option}}</button>
+            </mat-menu>
+            <span>: {{searchCriteria}}</span>
+            <form name="SearchForm" [formGroup]="paginatorForm" style="margin:5px">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Search Text</mat-label>
+                    <input formControlName="Search" maxlength="100" matInput />
+                </mat-form-field>
+            </form>
+
+            <button color="accent" mat-raised-button [matMenuTriggerFor]="sort">Sort by</button>
+            <mat-menu #sort="matMenu">
+                <button (click)="sortSelected(option)" *ngFor="let option of sortOptions"
+                    mat-menu-item>{{option}}</button>
+            </mat-menu>
+            <span>: {{sortBy}}</span>
+
+            <div>
+                <form name="PaginatorForm" [formGroup]="paginatorForm" style="margin: 5px;">
+                    <div class="offset">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Offset</mat-label>
+                            <input type="number" formControlName="Offset" matInput />
+                        </mat-form-field>
+                    </div>
+                    <div class="limit">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Limit</mat-label>
+                            <input type="number" formControlName="Limit" matInput />
+                        </mat-form-field>
+                    </div>
+
+                    <button mat-raised-button (click)="onSubmit()" [disabled]="submitDisable()"
+                        color="primary">Submit</button>
+                </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>User List</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="table-flex">
+
+                <table style="width:100%">
+                    <th *ngFor="let title of displayedColumns ">
+                        {{title}}
+                    </th>
+                    <tr *ngFor="let c of APIDATA">
+                        <td>{{c.employeeID}}</td>
+                        <td>{{c.emailID}}</td>
+                        <td>{{c.FirstName}}</td>
+                        <td>{{c.LastName}}</td>
+                        <td>{{c.Organization}}</td>
+                    </tr>
+                </table>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+
+</div>

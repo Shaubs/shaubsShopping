@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const app = express();
@@ -12,7 +13,7 @@ const loginRouter = require('../server/routes/loginRouter');
 app.use(express.static(path.join(__dirname, '../dist/antarctica'))) //getting static dist folder which has index.html
 app.use(cors())
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(bodyParser.urlencoded());
 
 ///will be using session to check if user has already logged in
 app.use(session({
@@ -37,7 +38,7 @@ app.get('*', (req, res) => {
 
 
 
-const port = process.env.PORT || 4600;
+const port = process.env.PORT || 4200;
 app.listen(port, (req, res) => {
     console.log('serverjs running');
 })

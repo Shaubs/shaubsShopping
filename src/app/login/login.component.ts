@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/register')
   }
   onSubmit() {
-    console.log(this.loginForm.value)
     this.http.get(`api/login/${this.loginForm.value.EmailID}/${this.loginForm.value.Password}`).subscribe((res: any) => {
       let k = res.result.message
       if (k == 'Incorrect Password') {

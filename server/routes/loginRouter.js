@@ -4,11 +4,9 @@ const LoginRouter = express.Router();
 
 LoginRouter.route('/:email/:password')
     .get((req, res, next) => {
-        sequelize.query(`Select * from user where emailID='${req.params.email}'`)
+        sequelize.query(`Select * from user where emailID='${req.params.email.toLowerCase()}'`)
             .then((result) => {
                 if (result[1].length > 0) {
-                    console.log(result[1])
-                    console.log(result[1][0].password, req.params.password)
                     let msg = (result[1][0].password == req.params.password) ? 'Valid User' : 'Incorrect Password';
                     result = { message: msg }
                     if (msg == 'Valid User') { req.session.auth == true }
