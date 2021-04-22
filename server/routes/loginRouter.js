@@ -1,5 +1,6 @@
 const express = require('express');
 const sequelize = require('../config/database');
+global.userSessionObject = {};
 const LoginRouter = express.Router();
 
 LoginRouter.route('/:email/:password')
@@ -9,7 +10,13 @@ LoginRouter.route('/:email/:password')
                 if (result[1].length > 0) {
                     let msg = (result[1][0].password == req.params.password) ? 'Valid User' : 'Incorrect Password';
                     result = { message: msg }
-                    if (msg == 'Valid User') { req.session.auth == true }
+                    if (msg == 'Valid User') {
+                        const temp_SessionId = req.sessionID
+                        console.log(' USER INFO TO SESSION OBJ : ', temp_SessionId);
+                        global.userSessionObject[temp_SessionId] = {
+                            createdTime: Date.now()
+                        }
+                    }
                 }
                 else {
                     result = { message: 'Does not exist' };
@@ -20,7 +27,7 @@ LoginRouter.route('/:email/:password')
                 res.json({ success: true, info: null, result: result });
             }
             )
-            .catch(err => { res.status(400).json({ success: false, info: err.status, result: null, message: err + 'wth' }) })
+            .catch(err => { res.status(400).json({ success: false, info: err.status, result: null, message: err }) })
 
     })
 module.exports = LoginRouter;

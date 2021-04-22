@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { userError } from '@angular/compiler-cli/src/transformers/util';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
@@ -40,12 +41,16 @@ export class RegistrationComponent implements OnInit {
       })
     };
     this.http.get(`api/register/${this.regForm.value.EmailID}`).subscribe((res: any) => {
+      console.log(res)
       this.check = res.result;
       if (this.check == 'Present') { this.message = 'Account already exists. Please Login'; this.regForm.reset() }
       if (this.check == 'Not') {
         this.http.post(`api/register`, data, httpOptions).subscribe((res: any) => {
           console.log(res, res.result)
           if (res.result == 'Done') { this.message = 'Account created. Please Login'; this.regForm.reset() }
+          else {
+            if (res.result.errors[0].message === "PRIMARY must be unique") { this.message = 'Looks like this employee Id is linked to an existing user.' }
+          }
         })
 
       }

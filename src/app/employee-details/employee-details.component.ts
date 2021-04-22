@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 export interface IUser {
@@ -18,7 +19,7 @@ export interface IUser {
 })
 export class EmployeeDetailsComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: Router) { }
 
   searchCriteria: string = '';
   sortBy: string = '';
@@ -46,10 +47,15 @@ export class EmployeeDetailsComponent implements OnInit {
     this.APIDATA = []
     this.http.get(`api/employee/${this.searchCriteria}/${this.paginatorForm.value.Search}/${this.sortBy}/${this.paginatorForm.value.Offset}/${this.paginatorForm.value.Limit}`)
       .subscribe((res: any) => {
-        res.result.forEach((element: IUser) => {
-          this.APIDATA.push(element)
-        });
-        console.log(this.APIDATA)
+        console.log("something:", res)
+        if (res.result === 'redirect') { this.route.navigateByUrl('/login') }
+        else {
+          res.result.forEach((element: IUser) => {
+            this.APIDATA.push(element)
+          });
+          console.log(this.APIDATA)
+        }
+
       })
   }
 
