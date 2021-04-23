@@ -6,18 +6,14 @@ const EmployeeRouter = express.Router();
 EmployeeRouter.route('/:SearchCriteria/:search/:sortBy/:offset/:limit').get((req, res, next) => {
     const requestSessionID = req.sessionID; // request Session Id
     var k;
-    console.log("in route:", requestSessionID, global.userSessionObject)
-
+    clearExpiredSessions();
     for (let storedSessionId in global.userSessionObject) {
         console.log("in for :", storedSessionId)
         if (storedSessionId === requestSessionID) { // if request and stored session id matches then hes valid user
-            console.log("inifffffffffffff:", storedSessionId)
             k = true;
             // if session id is not in our store then he is not considered as authenticated
-
         }
     }
-    console.log("END OF FOR LOOP", k)
     if (k === true) {
         console.log("in if k ")
         sequelize.query(`select user.employeeID,FirstName,LastName,emailID,Organization from employee left join user on employee.employeeID=user.employeeID 
@@ -36,5 +32,18 @@ EmployeeRouter.route('/:SearchCriteria/:search/:sortBy/:offset/:limit').get((req
         res.json({ success: true, info: null, result: 'redirect' });
     }
 });
+
+function clearExpiredSessions() {
+    const currentTime = Date.now();
+    for (let sessionId in userSessionObject) {
+        const duration = currentTime - userSessionObject[sessionId].createdTime;
+        if (duration > 1000 * 60 * 3) {
+            delete userSessionObject[sessionId];
+        } else {
+            break;
+        }
+    }
+}
+
 
 module.exports = EmployeeRouter;

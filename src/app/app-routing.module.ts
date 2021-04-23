@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 'employeeDetails',
     component: EmployeeDetailsComponent,
     pathMatch: 'full',
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: '**',

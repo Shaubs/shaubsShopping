@@ -24,7 +24,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: {
         secure: false,
-        maxAge: 1 * 24 * 3600000 // maxage or expiry must be set inside cookie object after 1.16 version in express session.
+        maxAge: 60000 // maxage or expiry must be set inside cookie object after 1.16 version in express session. Expire in 60 seconds
     }
 }))
 

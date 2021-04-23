@@ -1,5 +1,6 @@
 const express = require('express');
 const sequelize = require('../config/database');
+const bcrypt = require('bcrypt');
 const RegisterRouter = express.Router();
 
 
@@ -24,7 +25,7 @@ RegisterRouter.route('/').post((req, res, next) => {
 
 function check(email) {
     var msg
-    return sequelize.query(`select * from user where emailID='${email}'`).then(result => {
+    return sequelize.query(`select emailID from user where emailID='${email}'`).then(result => {
         if (result[1].length > 0) {
             msg = 'Present'
 
@@ -38,18 +39,27 @@ function check(email) {
     }).catch(err => { return err })
 }
 
-function insert(req) {
+async function insert(req) {
     var msg;
-    return sequelize.query(`INSERT INTO employee(employeeID,LastName,FirstName,Organization) VALUES('${req.body.EmployeeID.toLowerCase()}','${req.body.LastName.toLowerCase()}','${req.body.FirstName.toLowerCase()}','${req.body.OrganizationName.toLowerCase()}');` +
-        `INSERT INTO user(employeeID,emailID,password) VALUES('${req.body.EmployeeID.toLowerCase()}','${req.body.EmailID.toLowerCase()}','${req.body.Password}')`)
-        .then((result) => {
+    var hash;
 
-            console.log("done");
-            msg = 'Done';
-            return msg;
+    try {
+        hash = await bcrypt.hash(req.body.Password, 10)
+        return await sequelize.query(`INSERT INTO employee(employeeID,LastName,FirstName,Organization) VALUES('${req.body.EmployeeID.toLowerCase()}','${req.body.LastName.toLowerCase()}','${req.body.FirstName.toLowerCase()}','${req.body.OrganizationName.toLowerCase()}');` +
+            `INSERT INTO user(employeeID,emailID,password) VALUES('${req.body.EmployeeID.toLowerCase()}',
+            '${req.body.EmailID.toLowerCase()}','${hash}')`).then((result) => {
 
-        }).catch(err => { return err })
+                console.log("done");
+                msg = 'Done';
+                return msg;
+            }).catch((err) => { return err })
+    }
+    catch (e) {
+        console.log(e)
+
+    }
 }
+
 
 //insert into user(employeeID,emailID,password) values('${req.body.EmployeeID}','${req.body.EmailID}','${req.body.Password}')
 // INSERT INTO employee(employeeID,LastName,FirstName,Organization) VALUES('${req.body.EmployeeID}','${req.body.LastName}','${req.body.FirstName}','${req.body.OrganizationName}');
