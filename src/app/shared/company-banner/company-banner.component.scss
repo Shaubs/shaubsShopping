@@ -1,0 +1,23 @@
+.logo-circle {
+    border-top-left-radius    : 50% 50%;
+    border-top-right-radius   : 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius : 50% 50%;
+    width                     : 10rem;
+    height                    : 10rem;
+    overflow                  : hidden;
+}
+
+.logo {
+    position: relative;
+    bottom  : 5rem;
+    z-index : 2;
+
+}
+
+.logo-placement {
+    display        : flex;
+    flex-wrap      : wrap;
+    align-items    : center;
+    justify-content: center;
+}

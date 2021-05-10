@@ -1,0 +1,84 @@
+@import '../../../css-styles/fadeInFadeOut.scss';
+@import '../../../css-styles/fadeIn.scss';
+
+
+.diagonalNavbar {
+    display              : grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width                : 100%;
+    justify-items        : center;
+    margin-bottom        : 20px;
+}
+
+.wallImg {
+    object-fit   : cover;
+    min-width    : 300px;
+    height       : inherit;
+    border-radius: 10px;
+    animation    : fadeIn 9s linear;
+
+}
+
+
+
+.Wall {
+    height      : inherit;
+    width       : inherit;
+    justify-self: center;
+    text-align  : center;
+}
+
+.OuterPackageOfLayers {
+    overflow: hidden;
+    height  : auto;
+    color   : white;
+
+}
+
+.imageLayer {
+    display              : grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    width                : 100%;
+    position             : absolute;
+    z-index              : 0;
+    overflow             : hidden;
+    background-color     : black;
+}
+
+
+
+.categoriesLayer {
+    display        : flex;
+    padding        : 12rem 0;
+    flex-wrap      : wrap;
+    justify-content: space-around;
+    position       : absolute;
+    z-index        : 2;
+    width          : 100%;
+
+    ~.imageLayer {
+        height: fit-content;
+    }
+}
+
+.categories {
+    height         : 230px;
+    width          : 230px;
+    // flex-basis  : max(33.33%);
+    border         : 2px solid white;
+    opacity        : 0.7;
+    background     : black;
+    justify-self   : center;
+    color          : white;
+    font-size      : xx-large;
+    text-align     : center;
+    margin         : 10px;
+    border-radius  : 20px;
+}
+
+.catTitle {
+    position: sticky;
+    bottom  : 0px;
+    padding : 100px 0px 0px 0px;
+
+}

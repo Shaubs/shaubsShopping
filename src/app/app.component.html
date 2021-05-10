@@ -1,10 +1,71 @@
-<div style="height:100%;
-display:flex;
-direction:column;
-background-color:cornflowerblue;
-align-items:center;
-align-self:center;
-justify-self:center;
-justify-content: center;">
-  <router-outlet></router-outlet>
+<!-- HEADER -->
+<div class='header'>
+  Something Something
 </div>
+<!-- DESKTOP VIEW -->
+<div class='window' *ngIf="!mobile;else mobileScreen">
+  <navbar class="navbar"></navbar>
+  <div class='content'>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- MOBILE VIEW -->
+<ng-template class="window" #mobileScreen>
+
+  <!-- MENU ICON -->
+  <div [ngClass]="{'menuIconPosition':!iconSpin,'menuIconPositionSpin':iconSpin}">
+    <mat-icon *ngIf='!menu;else close' class='menuIcon' (click)='menuClicked()'>menu</mat-icon>
+    <ng-template #close>
+      <mat-icon class='close' (click)='menuClicked()'>close</mat-icon>
+    </ng-template>
+  </div>
+  <!-- CONTENT WHEN MENNU IS CLOSED -->
+  <div *ngIf='!menu;else menuOpen'>
+    <div style="background-color: black; color: white;z-index:100" class="mobileMenuBar">
+      <search-box style="color: white;margin-right: 20px;display: flex;"></search-box>
+    </div>
+
+    <div class='content'>
+      <!-- TRANSITION BETWEEN CONTENT -->
+      <div *ngIf='iconSpin'>
+        <div style="background-color:burlywood;
+        height          : 100vh !important;
+        animation       : slideUp 1s ease forwards;"></div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- CONTENT WHEN MENNU IS OPEN -->
+  <ng-template #menuOpen>
+
+    <div class='mobileMenuBar' style="background-color:burlywood;color: black;">
+      <search-box style="color:black;margin-right: 20px;display: flex;"></search-box>
+    </div>
+    <div style="height: 95vh;" class="menu">
+      <!-- TRANSITION BETWEEN CONTENT -->
+      <div *ngIf='iconSpin'>
+        <div style="background-color:black;
+        height          : 100ch !important;
+        animation       : slideUp 1s ease forwards;"></div>
+      </div>
+      <div *ngFor='let option of MenuOptions' class='menuContent'>
+        <button mat-raised-button style="font-family: none;background: transparent;
+        align-self: center;
+        text-align: center;
+        font-size: large;
+        margin: 10%;">{{option.name}}</button>
+      </div>
+    </div>
+
+
+  </ng-template>
+
+  <!-- MOBILE NAVBAR AT BASE -->
+  <mobile-navbar>
+  </mobile-navbar>
+</ng-template>
+
+
+<!-- <div class='footer'>footer</div> -->
+<!-- <footer></footer> -->

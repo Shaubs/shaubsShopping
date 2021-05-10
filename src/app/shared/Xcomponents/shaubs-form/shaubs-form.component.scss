@@ -1,0 +1,25 @@
+.submitButton {
+    float     : right;
+    background: orangered;
+    position  : absolute;
+    right     : 1rem;
+    bottom    : 1rem;
+
+    &:hover {
+        box-shadow      : orangered 20px;
+        color           : orangered;
+        background-color: white;
+        border          : orangered;
+        border-radius   : 2px;
+    }
+}
+
+.form {
+    display          : inline-flex;
+    /* flex-direction: column; */
+    flex-wrap        : wrap;
+
+    &-input {
+        margin: 10px;
+    }
+}

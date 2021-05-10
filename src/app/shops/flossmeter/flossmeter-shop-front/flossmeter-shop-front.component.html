@@ -1,0 +1,31 @@
+<div style="background:black; height: fit-content;">
+    <company-banner [img_video_src]='img_video_src' [isVideo]='isVideo' [logoImg]='logoImg'
+        subline="heading, subline , descriptions etc.">
+    </company-banner>
+    <div class="diagonalNavbar">
+        <button mat-raised-button style="background:inherit;color:white;width:93px;">AboutUs</button>
+        <div></div>
+        <div></div>
+        <div></div>
+        <button mat-raised-button style="background:inherit;color:white;width:93px;">ContactUs</button>
+        <div></div>
+        <div></div>
+        <div></div>
+        <button mat-raised-button style="background:inherit;color:white;width:93px;">Remarks</button>
+    </div>
+    <!-- <div style="height:1px;background:blue;border:1px solid red;box-shadow: 19px white;"></div> -->
+    <div style="background-color: black;overflow-y:hidden">
+        <div class='categoriesLayer'>
+            <!-- <div > -->
+            <button mat-raised-button class='categories' *ngFor="let cat of categories">{{cat.title}}</button>
+            <!-- <div class='catTitle'></div> -->
+            <!-- </div> -->
+        </div>
+        <div class="imageLayer">
+            <div class='Wall' *ngFor="let img of Wall"> <img [src]="dir+img" class='wallImg' />
+            </div>
+        </div>
+
+    </div>
+
+</div>

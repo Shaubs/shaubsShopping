@@ -1,0 +1,96 @@
+.card-content {
+    display: flex;
+}
+
+.shipIt {
+    float     : right;
+    background: orangered;
+
+    &:hover {
+        box-shadow      : orangered 20px;
+        color           : orangered;
+        background-color: white;
+        border          : orangered;
+        border-radius   : 2px;
+    }
+}
+
+.delete-button {
+
+    &:hover {
+        background-color: orangered;
+        color           : white;
+    }
+}
+
+.modify-button {
+    &:hover {
+        background-color: green;
+    }
+}
+
+.image {
+    display: block;
+    height : fit-content;
+    width  : 294px;
+}
+
+.image-restrictions {
+    overflow: hidden;
+}
+
+.details {
+    width        : calc(100% - 295px);
+    padding-left : 20px;
+    padding-right: 20px;
+}
+
+#p {
+    display: flexbox;
+}
+
+.action-bar {
+    display: flex;
+}
+
+.item-action-button {
+    background-position: center;
+    transition         : background 0.8s;
+}
+
+.item-action-button:hover {
+    background: olivedrab radial-gradient(circle, transparent 1%, olive 1%) center/15000%;
+
+}
+
+.item-action-button:active {
+    background-color: olivedrab;
+    background-size : 100%;
+    transition      : background 0s;
+
+}
+
+@media screen and (max-width: 545px) {
+    .card-content {
+        flex-direction : column;
+        justify-content: center;
+        align-items    : center;
+        overflow-x     : hidden;
+    }
+
+    .image {
+        display: block;
+        height : auto;
+        width  : auto;
+    }
+
+    .image-restrictions {
+        overflow: auto;
+        height  : auto;
+    }
+
+    .details {
+        flex-grow: 1;
+        width    : 100%;
+    }
+}

@@ -1,0 +1,5 @@
+<div class='navbar'>
+    <div class='links' *ngFor='let link of navbarLinks'>
+        <div (click)='routeToPage(link.link)'>{{link.title}}</div>
+    </div>
+</div>

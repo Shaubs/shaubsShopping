@@ -1,0 +1,11 @@
+<div class='catalogue'>
+    <div *ngFor='let cat of categories'>
+        <div>
+            <mat-card class='category-card' [routerLink]='cat.contentUrl'>
+                <img mat-card-image [src]="cat.imgUrl" alt="cat.title">
+                <div class="card-title">{{cat.title}}</div>
+            </mat-card>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,160 @@
+@import '../../css-styles/fadeIn.scss';
+@import '../../css-styles/fadeOut.scss';
+
+.heading {
+    margin-bottom: 5%;
+    margin-left  : 5%;
+    margin-right : 5%;
+    animation    : fadeIn 2s linear;
+
+}
+
+.shipItCard {
+    margin      : 5%;
+    width       : 460px;
+    justify-self: center;
+    display     : flex;
+
+
+    &-Transit {
+        margin             : 5%;
+        width              : 460px;
+        justify-self       : center;
+        display            : flex;
+        // background-color: orangered;
+
+    }
+}
+
+.totalPrice {
+    width     : 100%;
+    align-self: center;
+
+    &-Transit {
+        width          : 100%;
+        align-self     : center;
+        background     : linear-gradient(to left, orangered 50%, white 50%) right;
+        background-size: 200%;
+        transition     : .5s ease-out;
+        opacity        : 0;
+
+    }
+}
+
+.price {
+    width           : 100%;
+    background-color: white;
+    height          : 100%;
+    border-radius   : inherit;
+    font-size       : xx-large;
+    font-family     : fangsong;
+    text-align      : center;
+    align-self      : center;
+    display         : flex;
+    margin-left     : 10px;
+
+    &-Transit {
+        width          : 100%;
+        background     : linear-gradient(to left, orangered 50%, white 50%) right;
+        background-size: 200%;
+        transition     : .5s ease-out;
+        height         : 100%;
+        border-radius  : inherit;
+        font-size      : xx-large;
+        font-family    : fangsong;
+        text-align     : center;
+        align-self     : center;
+        display        : flex;
+        padding-left   : 10px;
+    }
+
+
+}
+
+.price-cover {
+    display         : flex;
+    align-items     : center;
+    width           : 100%;
+    min-height      : 12rem;
+    box-shadow      : gray 19px;
+    border-radius   : 20px;
+    background-color: orangered;
+
+    &-Transit {
+        display        : flex;
+        align-items    : center;
+        width          : 100%;
+        min-height     : 12rem;
+        box-shadow     : gray 19px;
+        border-radius  : 20px;
+        background     : linear-gradient(to left, orangered 50%, white 50%) right;
+        background-size: 200%;
+        transition     : .5s ease-out;
+
+    }
+
+}
+
+.shipIt-button {
+    height                   : 100%;
+    border-bottom-left-radius: 50% 50%;
+    border-top-left-radius   : 50% 50%;
+    align-self               : center;
+    position                 : relative;
+    background-color         : orangered;
+    height                   : 100%;
+    color                    : white;
+    font-size                : xx-large;
+    font-family              : fangsong;
+    border                   : white;
+    padding                  : 2rem;
+
+    &:active {
+        animation: fadeOut 1.5s linear;
+    }
+
+}
+
+.TakeAddressCard {
+    height          : fit-content;
+    min-height      : 12rem;
+    background-color: white;
+    border-radius   : 20px;
+    animation       : fadeIn 1s linear;
+}
+
+.TakeAddressCardMargin {
+    margin             : 5%;
+    border             : 5px solid orangered;
+    border-radius      : 20px;
+    animation          : expand 1s ease-in forwards;
+    // transition      : all 3s cubic-bezier(0.5, 0.005, 0.075, 0.985);
+}
+
+@media screen and (max-width:454px) {
+    .shipItCard {
+        margin      : 2%;
+        width       : auto;
+        justify-self: center;
+        display     : flex;
+
+        &-Transit {
+            margin             : 5%;
+            width              : auto;
+            justify-self       : center;
+            display            : flex;
+            overflow           : hidden;
+            // background-color: orangered;
+
+        }
+    }
+
+    .price {
+        font-size: medium;
+    }
+
+    .shipIt-button {
+        font-size: large;
+    }
+
+}

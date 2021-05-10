@@ -1,0 +1,103 @@
+.content {
+    position        : sticky;
+    color           : #f1f1f1;
+    width           : 100%;
+    /* padding      : 0; */
+    background-color: black;
+    opacity         : 0.5;
+    z-index         : 1;
+    height          : 70%;
+    height          : -moz-fit-content;
+    /* height       : fit-content; */
+    top             : 30%;
+    bottom          : 0px;
+
+    .h1 {
+        opacity: 1;
+    }
+
+    .p {
+        opacity: 1;
+    }
+}
+
+
+
+.banner-img {
+    height  : 14rem;
+    overflow: hidden;
+}
+
+.Arrow {
+    // float      : left;
+    // left       : 0;
+    // margin-left: 5%;
+    // position   : absolute;
+    color     : white;
+    background: none;
+    display   : flex;
+    border    : hidden;
+
+    &:focus {
+        outline   : none;
+        box-shadow: none;
+    }
+
+    &:active {
+        // border-color:white;
+        border: hidden;
+
+        .circleBig {
+            background-color: gray;
+            z-index         : 1;
+        }
+
+        .circleSmall {
+            background-color: gray;
+        }
+    }
+}
+
+.circleSmall {
+    border-top-left-radius    : 50% 50%;
+    border-top-right-radius   : 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius : 50% 50%;
+    width                     : 10px;
+    height                    : 10px;
+    background-color          : lightgray;
+    margin                    : 10px;
+}
+
+.circleCenter {
+    border-top-left-radius    : 50% 50%;
+    border-top-right-radius   : 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius : 50% 50%;
+    width                     : 10px;
+    height                    : 10px;
+    background-color          : lightgray;
+    margin                    : 10px;
+
+}
+
+.circleBig {
+    border-top-left-radius    : 50% 50%;
+    border-top-right-radius   : 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius : 50% 50%;
+    width                     : 15px;
+    height                    : 15px;
+    background-color          : lightgray;
+    margin                    : 8px;
+
+}
+
+// .rightArrow {
+//     float       : right;
+//     right       : 0;
+//     margin-right: 5%;
+//     position    : absolute;
+//     color       : white;
+//     background  : none;
+// }

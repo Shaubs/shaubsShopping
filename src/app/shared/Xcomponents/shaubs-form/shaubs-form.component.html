@@ -1,0 +1,12 @@
+<form class='form' name="FormName" [formGroup]="customForm">
+    <div class='form-input' *ngFor='let label of formInputList;let i = index'>
+        <mat-form-field class='form-input-field' class="full-width" appearance="outline">
+            <mat-label>{{label}}</mat-label>
+            <input [formControlName]="label" [type]="typeList[i]" matInput />
+            <mat-error *ngIf='errorMessages!=undefined && customForm.invalid'>{{errorMessages[i]}}</mat-error>
+        </mat-form-field>
+    </div>
+
+    <button mat-raised-button (click)="onSubmit()" [disabled]="customForm.invalid"
+        class='submitButton'>{{submitLabel}}</button>
+</form>

@@ -1,0 +1,43 @@
+.category-card {
+    width           : 300px;
+    height          : 300px;
+    margin-bottom   : 1rem;
+    margin          : 5px;
+    padding         : 0;
+    display         : block;
+    top             : 0px;
+    position        : relative;
+    background-color: #f2f8f9;
+    border-radius   : 4px;
+    text-decoration : none;
+    overflow        : hidden;
+    border          : 1px solid #f2f8f9;
+
+    &:hover {
+        box-shadow: 0 0 19px gray;
+    }
+}
+
+.card-title {
+    position   : absolute;
+    display    : flex;
+    color      : white;
+    top        : 0;
+    font-size  : xx-large;
+    font-style : normal;
+    font-family: serif;
+    border     : 5px solid white;
+    padding    : 15px;
+    margin-top : 45%;
+    margin-left: 35%;
+
+}
+
+.catalogue {
+    display        : flex;
+    flex-wrap      : wrap;
+    align-items    : center;
+    justify-content: center;
+    padding-bottom : 0;
+    margin         : 5%;
+}

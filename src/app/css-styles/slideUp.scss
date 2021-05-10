@@ -1,0 +1,49 @@
+@keyframes slideUp {
+    0% {
+        transform: translateY(1400px)
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
+}
+
+@-moz-keyframes slideUp {
+    0% {
+        transform: translateY(1400px)
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
+}
+
+@-webkit-keyframes slideUp {
+    0% {
+        transform: translateY(1400px)
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
+}
+
+@-o-keyframes slideUp {
+    0% {
+        transform: translateY(1400px)
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
+}
+
+@-ms-keyframes slideUp {
+    0% {
+        transform: translateY(1400px)
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
+}

@@ -1,0 +1,23 @@
+.nav-bar {
+    position             : fixed;
+    bottom               : 0;
+    width                : -webkit-fill-available;
+    padding              : 10px;
+    z-index              : 2;
+    background-color     : black;
+    display              : grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow             : hidden;
+}
+
+.tabs {
+    align-items    : center;
+    justify-content: center;
+    text-align     : center;
+    color          : white;
+    display        : flex;
+    flex-direction : column;
+    border-radius  : 10px;
+    border         : 1px solid;
+
+}

@@ -1,0 +1,6 @@
+<div class='nav-bar'>
+    <div *ngFor="let tab of tabs" (click)="select(tab.name)" class="tabs" [ngStyle]="{'border-color':tab.color}">
+        <mat-icon>{{tab.icon}}</mat-icon>{{tab.name}}
+    </div>
+
+</div>

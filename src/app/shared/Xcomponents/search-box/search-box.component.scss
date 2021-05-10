@@ -1,0 +1,16 @@
+.search {
+    margin-right: 15px;
+    padding-top : 10px;
+
+    &Text {
+        // animation       : fadeIn 2s linear 0;
+        background-color: inherit;
+        border-top      : inherit;
+        border-left     : inherit;
+        border-right    : inherit;
+        color           : white;
+        width           : 100%;
+        margin-right    : 10px;
+    }
+
+}

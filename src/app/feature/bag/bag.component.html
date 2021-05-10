@@ -1,0 +1,33 @@
+<div style="background-color: white;padding-bottom: 5rem;">
+    <ad-banner></ad-banner>
+    <h1 class="heading">Continue Shopping with us
+        <div>#vocalForLocal</div>
+    </h1>
+    <div>
+        <mat-card *ngIf='!TakeAddress' [ngClass]="{'shipItCard':!shipItClicked,'shipItCard-Transit':shipItClicked}">
+            <mat-card-content [ngClass]="{'price-cover':!shipItClicked,'price-cover-Transit':shipItClicked}">
+                <!-- class="price-cover"> -->
+                <div class='price'>
+                    <div [ngClass]="{'totalPrice':!shipItClicked,'totalPrice-Transit':shipItClicked}">Total: Rs{{Price}}
+                    </div>
+                    <button mat-raised-button (click)='shipItButton()' class="shipIt-button">Ship
+                        It</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-card *ngIf='TakeAddress' class='TakeAddressCardMargin'>
+
+            <mat-card-content class='TakeAddressCard'>
+                <div style="margin: 5px;">
+
+                    <h1>Delivery Address</h1>
+                    <shaubs-form [form]='AddressForm' [formInputList]='AddressComponents'
+                        [errorMessages]='formErrorMessages' [typeList]='formInputTypes' [submitLabel]='formButton'>
+                    </shaubs-form>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <checkout-item-catalogue (totalPrice)='totalPrice($event)'>
+    </checkout-item-catalogue>
+</div>

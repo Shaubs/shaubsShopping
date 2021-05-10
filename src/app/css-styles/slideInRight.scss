@@ -1,0 +1,49 @@
+@keyframes slideInRight {
+    0% {
+        transform: translateX(1400px)
+    }
+
+    100% {
+        transform: translateX(0px)
+    }
+}
+
+@-moz-keyframes slideInRight {
+    0% {
+        transform: translateX(1400px)
+    }
+
+    100% {
+        transform: translateX(0px)
+    }
+}
+
+@-webkit-keyframes slideInRight {
+    0% {
+        transform: translateX(1400px)
+    }
+
+    100% {
+        transform: translateX(0px)
+    }
+}
+
+@-o-keyframes slideInRight {
+    0% {
+        transform: translateX(1400px)
+    }
+
+    100% {
+        transform: translateX(0px)
+    }
+}
+
+@-ms-keyframes slideInRight {
+    0% {
+        transform: translateX(1400px)
+    }
+
+    100% {
+        transform: translateX(0px)
+    }
+}

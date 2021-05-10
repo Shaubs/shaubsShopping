@@ -1,0 +1,39 @@
+@import '../../css-styles/fadeIn.scss';
+
+.navbar {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    margin-bottom  : 3rem;
+}
+
+.links {
+    margin         : auto;
+    justify-content: center;
+    text-align     : center;
+    font-size      : large;
+    font-family    : none;
+    color          : black;
+    opacity        : 0.75;
+    z-index        : 0;
+    text-decoration: underline;
+    text-shadow    : olivedrab;
+    animation      : fadeIn 2s linear 0.5s;
+
+    &:hover {
+        opacity        : 1;
+        color          : olivedrab;
+        font-weight    : bold;
+        z-index        : 5;
+        font-stretch   : expanded;
+        text-decoration: none;
+    }
+}
+
+
+// @media screen and (max-width:545px) {
+//     .links {
+//         font-size: medium;
+//         margin   : 5%;
+//     }
+// }

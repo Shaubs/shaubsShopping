@@ -1,0 +1,25 @@
+@import './fadeIn.scss';
+
+.elegant-quote-title {
+    font-size    : xx-large;
+    padding-left : 5%;
+    font-family  : none;
+    font-style   : oblique;
+    color        : black;
+    margin-bottom: 1.5rem;
+    padding-top  : 1rem;
+}
+
+.elegant-tab-underlined-title {
+    margin         : auto;
+    justify-content: center;
+    text-align     : center;
+    font-size      : large;
+    font-family    : none;
+    color          : black;
+    opacity        : 0.75;
+    z-index        : 0;
+    text-decoration: underline;
+    text-shadow    : gray;
+    animation      : fadeIn 2s linear 0.5s;
+}
